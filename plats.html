@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>FASO Doumini</title>
+</head>
+<body>
+    <!-- Bloc fixe sur le côté gauche -->
+    <div class="fixed-block">
+        <img src="arton125127-0edaf.jpg" alt="Icône du site" class="site-icon">
+        <h1 class="site-name">FASO Doumini</h1>
+        <p class="site-description">Découvrez les saveurs traditionnelles et régionales du Burkina Faso.</p>
+        <p style="color: black;">Scaner ici pour nous contacter directement </p>
+        <img src="WhatsApp Image 2025-01-24 à 20.52.45_fcfeaa9d.jpg" width="70px" alt="">
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="main-content">
+        <fieldset class="main-fieldset">
+            <header>
+                <nav>
+                    <!-- Menu hamburger -->
+                    <div class="menu-icon" onclick="toggleMenu()">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+
+                    <ul class="nav-links">
+                        <li><a href="index.html">Acceuil</a></li>
+                        <li>
+                            <a href="plats.html">Nos recettes</a>
+                            <ul class="liste">
+                                <li><a href="moore.html">Mooré</a></li>
+                                <li><a href="dioula.html">Dioula</a></li>
+                                <li><a href="fulfude.html">Fulfudé</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="commande.html">Commande</a></li>
+                        <li><a href="propos.html">A propos</a></li>
+                        <li><a href="Galerie.html">Galerie</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Image principale -->
+            <img src="gettyimages-1182467837-612x612.jpg" alt="Recette" height="570px">
+        </fieldset>
+    </div>
+
+    <script>
+        // Fonction pour afficher ou masquer le menu
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-links');
+            menu.classList.toggle('open'); // Ajoute ou enlève la classe "open" pour afficher/masquer le menu
+        }
+    </script>
+
+    <style>
+        /* Styles pour le menu hamburger et la responsivité */
+        @media (max-width: 768px) {
+            /* Le menu est masqué par défaut sur les petits écrans */
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            /* Le menu devient visible quand la classe 'open' est ajoutée */
+            .nav-links.open {
+                display: flex;
+            }
+
+            /* Icône du menu hamburger */
+            .menu-icon {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                width: 30px;
+                height: 25px;
+                justify-content: space-between;
+            }
+
+            /* Chaque ligne de l'icône du menu */
+            .menu-icon div {
+                background-color: #333;
+                height: 4px;
+                width: 100%;
+            }
+
+            /* Espacement des éléments du menu */
+            .nav-links li {
+                padding: 10px 0;
+            }
+        }
+    </style>
+</body>
+</html>

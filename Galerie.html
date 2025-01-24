@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>FASO Doumini - Galerie</title>
+    <style>
+        /* Affichage du menu hamburger sur les petits écrans */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                background-color: #f4f4f4;
+                margin-top: 10px;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                width: 30px;
+                height: 25px;
+                justify-content: space-between;
+            }
+
+            .menu-icon div {
+                background-color: #333;
+                height: 4px;
+                width: 100%;
+            }
+
+            .nav-links li {
+                padding: 10px 0;
+            }
+
+            .nav-links a {
+                color: #333;
+                text-decoration: none;
+                font-size: 1.2rem;
+            }
+
+            .nav-links a:hover {
+                color: #b5651d;
+            }
+        }
+
+        /* Style de la barre latérale fixe */
+        .fixed-block {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #b5651d;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .site-icon {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .site-name {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .site-description {
+            font-size: 1rem;
+        }
+
+        /* Styles pour le contenu principal */
+        .main-content {
+            margin-left: 260px; /* Espace pour la barre latérale */
+            padding: 20px;
+        }
+
+        .main-fieldset {
+            border: none;
+        }
+
+        /* Style de la galerie */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Style du canvas pour les feux d'artifice */
+        #fireworksCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Le canvas sera derrière tous les autres éléments */
+        }
+    </style>
+</head>
+<body>
+    <!-- Bloc fixe sur le côté gauche -->
+    <div class="fixed-block">
+        <img src="arton125127-0edaf.jpg" alt="Icône du site" class="site-icon">
+        <h1 class="site-name">FASO Doumini</h1>
+        <p class="site-description">Découvrez les saveurs traditionnelles et régionales du Burkina Faso.</p>
+        <p style="color: black;">Scaner ici pour nous contacter directement </p>
+        <img src="WhatsApp Image 2025-01-24 à 20.52.45_fcfeaa9d.jpg" width="70px" alt="">
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="main-content">
+        <fieldset class="main-fieldset">
+            <header>
+                <nav>
+                    <!-- Menu hamburger -->
+                    <div class="menu-icon" onclick="toggleMenu()">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+
+                    <ul class="nav-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li>
+                            <a href="plats.html">Nos recettes</a>
+                            <ul class="liste">
+                                <li><a href="moore.html">Mooré</a></li>
+                                <li><a href="dioula.html">Dioula</a></li>
+                                <li><a href="fulfude.html">Fulfudé</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="commande.html">Commande</a></li>
+                        <li><a href="propos.html">À propos</a></li>
+                        <li><a href="Galerie.html">Galerie</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section>
+                <h2>Galerie</h2>
+                <div class="gallery">
+                    <img src="DSCF6048-1536x1024.jpg" alt="Plat traditionnel 1">
+                    <img src="Tot-à-la-sauce-gombo.jpg" alt="Plat traditionnel 5">
+                    <img src="une-femme-peule-lait-dans-une-calebasse-en-vente-dans-le-marche-hebdomadaire-de-djibo-dans-le-nord-du-burkina-faso-bxxmy5.jpg" alt="Plat traditionnel 3">
+                    
+                    <img src="RIZ GRAS.jpg" alt="Plat traditionnel 5">
+                    
+                    <img src="Du-Babenda-servi-pour-les-clients.jpg" alt="Plat traditionnel 2">
+                    <img src="bcfcac1c3d4b99b51de4620ad726bf3a.avif" alt="Plat traditionnel 2">
+                    <img src="front-view-cooked-greens-rice-along-with-beans-inside-white-plate-white-surface.jpg" alt="Plat traditionnel 2">
+                    <img src="arton125127-0edaf.jpg" alt="Plat traditionnel 2">
+                </div>
+            </section>
+
+        </fieldset>
+        
+    </div>
+
+    <canvas id="fireworksCanvas"></canvas>
+
+
+    <script>
+        // Fonction pour afficher ou masquer le menu
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-links');
+            menu.classList.toggle('open'); // Ajoute ou enlève la classe "open" pour afficher/masquer le menu
+        }
+        const canvas = document.getElementById("fireworksCanvas");
+        const ctx = canvas.getContext("2d");
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        window.addEventListener("resize", () => [canvas.width, canvas.height] = [window.innerWidth, window.innerHeight], false);
+        
+        class Firework {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height;
+                this.sx = Math.random() * 3 - 1.5;
+                this.sy = Math.random() * -3 - 3;
+                this.size = Math.random() * 2 + 1;
+                const colorVal = Math.round(0xffffff * Math.random());
+                [this.r, this.g, this.b] = [colorVal >> 16, (colorVal >> 8) & 255, colorVal & 255];
+                this.shouldExplode = false;
+            }
+            update() {
+                this.shouldExplode = this.sy >= -2 || this.y <= 100 || this.x <= 0 || this.x >= canvas.width;
+                this.sy += 0.01;
+                [this.x, this.y] = [this.x + this.sx, this.y + this.sy];
+            }
+            draw() {
+                ctx.fillStyle = `rgb(${this.r},${this.g},${this.b})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        class Particle {
+            constructor(x, y, r, g, b) {
+                [this.x, this.y, this.sx, this.sy, this.r, this.g, this.b] = [x, y, Math.random() * 3 - 1.5, Math.random() * 3 - 1.5, r, g, b];
+                this.size = Math.random() * 2 + 1;
+                this.life = 100;
+            }
+            update() {
+                [this.x, this.y, this.life] = [this.x + this.sx, this.y + this.sy, this.life - 1];
+            }
+            draw() {
+                ctx.fillStyle = `rgba(${this.r}, ${this.g}, ${this.b}, ${this.life / 100})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        const fireworks = [new Firework()];
+        const particles = [];
+        
+        function animate() {
+            ctx.fillStyle = "rgba(234, 247, 250, 0.1)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            Math.random() < 0.25 && fireworks.push(new Firework());  
+            fireworks.forEach((firework, i) => {
+                firework.update();
+                firework.draw();
+                if (firework.shouldExplode) {
+                    for (let j = 0; j < 50; j++) particles.push(new Particle(firework.x, firework.y, firework.r, firework.g, firework.b));
+                    fireworks.splice(i, 1);
+                }
+            });
+            particles.forEach((particle, i) => {
+                particle.update();
+                particle.draw();
+                if (particle.life <= 0) particles.splice(i, 1);
+            });
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+    </script>
+</body>
+</html>

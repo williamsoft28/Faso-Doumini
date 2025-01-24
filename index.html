@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>FASO Doumini</title>
+    <style>
+        /* Style pour l'image principale */
+        .main-image {
+            width: 100%; /* Prendre toute la largeur de la section principale */
+            height: 100vh; /* Prendre toute la hauteur visible */
+            object-fit: cover; /* Ajuster l'image sans déformation */
+            position: relative; /* Position pour gérer le ruban */
+        }
+
+        /* Style pour le ruban au centre */
+        .ribbon {
+            position: absolute;
+            top: 50%; /* Centrer verticalement */
+            left: 50%; /* Centrer horizontalement */
+            transform: translate(-50%, -50%); /* Ajuster le décalage dû au centrage */
+            background-color: rgba(0, 0, 0, 0.5); /* Ruban semi-transparent */
+            color: white; /* Texte en blanc */
+            padding: 20px 40px; /* Espacement intérieur */
+            border-radius: 10px; /* Coins arrondis */
+            font-size: 1.5rem; /* Taille du texte */
+            text-align: center; /* Centrer le texte */
+        }
+
+        /* Ajustement de la section pour l'image */
+        .random-images {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Prendre tout l'écran */
+            overflow: hidden;
+        }
+
+        /* Menu hamburger */
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            height: 5px;
+            background-color: #333;
+        }
+
+        /* Affichage du menu hamburger sur les petits écrans */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 10px 0;
+            }
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <!-- Bloc fixe sur le côté gauche -->
+    <div class="fixed-block">
+        <img src="arton125127-0edaf.jpg" alt="Icône du site" class="site-icon">
+        <h1 class="site-name">FASO Doumini</h1>
+        <p class="site-description">Découvrez les saveurs traditionnelles et régionales du Burkina Faso.</p>
+        <p style="color: black;">Scaner ici pour nous contacter directement </p>
+        <img src="WhatsApp Image 2025-01-24 à 20.52.45_fcfeaa9d.jpg" width="70px" alt="">
+        <div class="reseaux-sociaux">
+            <a href="https://github.com/williamsoft28" target="_blank" style="color: black;"><i class="fab fa-github"></i></a>
+            <a href="https://wa.me/22677878250" target="_blank" style="color: rgb(10, 189, 40);"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://facebook.com/" target="_blank" style="color: rgba(47, 41, 214, 0.91);"><i class="fab fa-facebook"></i></a>
+            <a href="https://linkedin.com" target="_blank" style="color: rgba(24, 158, 231, 0.789);"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+
+    <!-- Contenu principal (Bloc mobile) -->
+     
+    <div class="main-content">
+        <fieldset class="main-fieldset">
+            <header>
+                <nav>
+                    <!-- Menu hamburger -->
+                    <div class="menu-icon" onclick="toggleMenu()">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <!-- Liens de navigation -->
+                    <ul class="nav-links">
+                        <li><a href="index.html">Acceuil</a></li>
+                        <li>
+                            <a href="plats.html">Nos recettes</a>
+                            <ul class="liste">
+                                <li><a href="moore.html">Mooré</a></li>
+                                <li><a href="dioula.html">Dioula</a></li>
+                                <li><a href="fulfude.html">Fulfudé</a></li>
+                            </ul>
+                        </li>
+                       
+                        <li><a href="commande.html">Commande</a></li>
+                        <li><a href="propos.html">A propos</a></li>
+                        <li><a href="Galerie.html">Galerie</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section>
+                <!-- Zone d'images aléatoires -->
+                <div class="random-images">
+                    <img src="benga,6.jpg" id="random-image" alt="Image aléatoire" class="main-image">
+                    <!-- Ruban pour présenter le site -->
+                    
+            </section>
+        </fieldset>
+    </div>
+
+    <!-- Code JavaScript -->
+    <script>
+        // Liste des images disponibles
+        const images = [
+            'benga,6.jpg',
+            'maxresdefault.jpg',
+            'Tot-à-la-sauce-gombo.jpg',
+            'stock-photo-burkinabe-spiced-lamb-balls-burkina-faso-cuisine-traditional-assorted-african-dishes-top-view-1552649054.jpg'
+        ];
+
+        // Sélectionner l'élément de l'image
+        const imageElement = document.getElementById('random-image');
+
+        // Fonction pour changer l'image
+        function changeImage() {
+            // Sélectionner une image aléatoire
+            const i = Math.floor(Math.random() * images.length);
+            imageElement.src = images[i];
+        }
+
+        // Changer l'image toutes les 5 secondes
+        setInterval(changeImage, 1000);
+
+        // Fonction pour afficher/masquer le menu
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-links');
+            menu.classList.toggle('open'); // Ajoute ou enlève la classe "open" pour afficher/masquer le menu
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>FASO Doumini - Commande</title>
+    <style>
+        /* Main Content */
+        .main-content {
+            margin-left: 270px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .form-column {
+            flex: 1;
+        }
+
+        .form-container label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+            color: #333;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container textarea,
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .form-container button {
+            background-color: #E27C38;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #c96d30;
+        }
+
+        .form-container textarea {
+            resize: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+            }
+
+            .form-container {
+                padding: 20px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                width: 30px;
+                height: 25px;
+                justify-content: space-between;
+            }
+
+            .menu-icon div {
+                background-color: #333;
+                height: 4px;
+                width: 100%;
+            }
+
+            .nav-links li {
+                padding: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Bloc fixe sur le côté gauche -->
+    <div class="fixed-block">
+        <img src="arton125127-0edaf.jpg" alt="Icône du site" class="site-icon">
+        <h1 class="site-name">FASO Doumini</h1>
+        <p class="site-description">Découvrez les saveurs traditionnelles et régionales du Burkina Faso.</p>
+        <p style="color: black;">Scaner ici pour nous contacter directement </p>
+        <img src="WhatsApp Image 2025-01-24 à 20.52.45_fcfeaa9d.jpg" width="70px" alt="">
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="main-content">
+        <fieldset class="main-fieldset">
+            <header>
+                <nav>
+                    <!-- Menu hamburger -->
+                    <div class="menu-icon" onclick="toggleMenu()">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+
+                    <ul class="nav-links">
+                        <li><a href="index.html">Acceuil</a></li>
+                        <li>
+                            <a href="plats.html">Nos recettes</a>
+                            <ul class="liste">
+                                <li><a href="moore.html">Mooré</a></li>
+                                <li><a href="dioula.html">Dioula</a></li>
+                                <li><a href="fulfude.html">Fulfudé</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="commande.html">Commande</a></li>
+                        <li><a href="propos.html">A propos</a></li>
+                        <li><a href="Galerie.html">Galerie</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Formulaire de Commande -->
+            <div class="form-container">
+                <h1>Formulaire de Commande</h1>
+                <form id="commande-form" onsubmit="return envoyerWhatsApp()">
+                    <div class="form-row">
+                        <div class="form-column">
+                            <label for="nom">Nom :</label>
+                            <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
+
+                            <label for="prenom">Prénom :</label>
+                            <input type="text" id="prenom" name="prenom" placeholder="Entrez votre prénom" required>
+
+                            <label for="email">Email :</label>
+                            <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+                        </div>
+                        <div class="form-column">
+                            <label for="date">Date de la commande :</label>
+                            <input type="date" id="date" name="date" required>
+
+                            <label for="plat">Choisissez votre plat :</label>
+                            <select id="plat" name="plat" required>
+                                <option value="" disabled selected>Sélectionnez un plat</option>
+                                <optgroup label="Plats Mossi">
+                                    <option value="Tô au gombo">Tô au gombo</option>
+                                    <option value="Riz gras mossi">Riz gras</option>
+                                </optgroup>
+                                <optgroup label="Plats Dioula">
+                                    <option value="Sauce arachide">Sauce arachide</option>
+                                    <option value="Riz aux légumes">Riz aux légumes</option>
+                                </optgroup>
+                                <optgroup label="Plats Fulfudé">
+                                    <option value="Lait caillé">Lait caillé</option>
+                                    <option value="Fonio au lait">Fonio au lait</option>
+                                </optgroup>
+                            </select>
+
+                            <label for="commentaires">Commentaires:</label>
+                            <textarea id="commentaires" name="commentaires" rows="4" placeholder="Ajoutez des instructions ou commentaires ici..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit">Passer commande</button>
+                </form>
+            </div>
+        </fieldset>
+    </div>
+
+    <script>
+        function envoyerWhatsApp() {
+            const nom = document.getElementById("nom").value;
+            const prenom = document.getElementById("prenom").value;
+            const plat = document.getElementById("plat").value;
+            const commentaires = document.getElementById("commentaires").value;
+
+            const message = `Bonjour, je souhaite commander un plat :\nNom : ${nom}\nPrénom : ${prenom}\nPlat choisi : ${plat}\nCommentaires : ${commentaires}`;
+            const whatsappURL = `https://wa.me/22677878250?text=${encodeURIComponent(message)}`;
+
+            window.open(whatsappURL, "_blank");
+            return false; // pour empêcher un rechargement de la page
+        }
+
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-links');
+            menu.classList.toggle('open'); // Ajoute ou enlève la classe "open" pour afficher/masquer le menu
+        }
+    </script>
+</body>
+</html>
